@@ -77,6 +77,7 @@ uvicorn AI_monthly_forecast:app --reload
 ```
 
 The AI service will be available Localy at: `http://localhost:8000`
+
 The AI service will be available Gloably at: `https://web-production-ca42.up.railway.app`
 
 ---
