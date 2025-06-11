@@ -1,1 +1,17 @@
+Frontend Setup (React + Vite)
 
+*Installation*
+
+Navigate to the frontend directory and install the required packages:
+
+-cd Frontend
+-npm install
+
+
+*Running the Development Server*
+
+To start the frontend development server:
+
+-npm run dev
+
+The frontend will be available at: `http://localhost:5173`
