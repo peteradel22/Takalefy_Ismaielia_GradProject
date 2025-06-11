@@ -1,1 +1,9 @@
+Backend Deployment
+The backend API is deployed on Azure and can be accessed at:
 
+URL:https://api.takalefy.hs.vc/
+
+Frontend Deployment
+The frontend application is deployed on Cloudflare Pages and can be accessed at:
+
+URL:https://takalefy-v2-0.pages.dev/
