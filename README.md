@@ -1,5 +1,4 @@
 # Takalefy_Ismaielia_GradProject
-# Takalefy - Personal Finance Assistant
 
 This project is composed of three main components:
 
