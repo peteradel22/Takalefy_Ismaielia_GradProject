@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  user_id            BigInt          @id @default(autoincrement())
+  username           String          @unique
+  email              String          @unique
+  password_hash      String
+  full_name          String
+  preferred_currency String          @db.Char(3)
+  created_at         DateTime        @default(now())
+  updated_at         DateTime        @updatedAt
+
+  // Relations
+  categories         Category[]
+  transactions       Transaction[]
+  notifications      Notification[]
+  userGoals          UserGoal[]
+  settings           UserSetting?
+}
+
+model Category {
+  category_id BigInt      @id @default(autoincrement())
+  user_id     BigInt
+  name        String
+  type        String
+  icon_key    String
+  created_at  DateTime    @default(now())
+
+  // Relations
+  user         User        @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  transactions Transaction[]
+}
+
+model Transaction {
+  transaction_id BigInt   @id @default(autoincrement())
+  user_id        BigInt
+  category_id    BigInt
+  amount         Decimal
+  type           String
+  occurred_at    DateTime
+  description    String
+  created_at     DateTime @default(now())
+
+  // Relations
+  user     User     @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  category Category @relation(fields: [category_id], references: [category_id], onDelete: Cascade)
+}
+
+model Notification {
+  notification_id BigInt   @id @default(autoincrement())
+  user_id         BigInt
+  message         String
+  created_at      DateTime @default(now())
+  is_read         Boolean  @default(false)
+
+  // Relations
+  user User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+}
+
+model UserGoal {
+  goal_id     BigInt   @id @default(autoincrement())
+  user_id     BigInt
+  goal_text   String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  is_done     Boolean  @default(false)
+  // Relations
+  user User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+}
+
+model UserSetting {
+  user_setting_id BigInt   @id @default(autoincrement())
+  user_id         BigInt   @unique
+  profile_image   String?  // Optional for delete support
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  // Relations
+  user User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+} 
