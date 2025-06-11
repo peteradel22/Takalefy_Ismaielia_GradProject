@@ -1,1 +1,19 @@
+AI Service Setup (FastAPI)
 
+*Python Dependencies*
+
+Install the required Python packages using pip:
+
+-cd AI
+-pip install fastapi uvicorn pandas numpy lightgbm scikit-learn pydantic
+
+*Running the AI Server Locally*
+
+Ensure the file `AI_monthly_forecast.py` is in the current directory. Then run the server using:
+
+-uvicorn AI_monthly_forecast:app --reload
+
+
+The AI service will be available Localy at: `http://localhost:8000`
+
+The AI service will be available Gloably at: `https://web-production-ca42.up.railway.app`
