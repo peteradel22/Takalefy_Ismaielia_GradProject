@@ -3,10 +3,6 @@
 
 This project is composed of three main components:
 
-* AI Service (FastAPI with machine learning models)
-* Backend API (NestJS with Prisma)
-* Frontend (React with Vite)
-
 ## 1. Backend Setup (NestJS)
 
 ### Installation
@@ -14,7 +10,7 @@ This project is composed of three main components:
 Navigate to the backend directory and install the required packages:
 
 ```bash
-cd backend
+cd Backend
 npm install
 ```
 
@@ -46,7 +42,7 @@ The backend will be available at: `http://localhost:3000`
 Navigate to the frontend directory and install the required packages:
 
 ```bash
-cd frontend
+cd Frontend
 npm install
 ```
 
@@ -69,6 +65,7 @@ The frontend will be available at: `http://localhost:5173`
 Install the required Python packages using pip:
 
 ```bash
+cd AI
 pip install fastapi uvicorn pandas numpy lightgbm scikit-learn pydantic
 ```
 
