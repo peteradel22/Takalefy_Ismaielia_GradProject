@@ -76,7 +76,8 @@ Ensure the file `AI_monthly_forecast.py` is in the current directory. Then run t
 uvicorn AI_monthly_forecast:app --reload
 ```
 
-The AI service will be available at: `http://localhost:8000`
+The AI service will be available Localy at: `http://localhost:8000`
+The AI service will be available Gloably at: `https://web-production-ca42.up.railway.app`
 
 ---
 
